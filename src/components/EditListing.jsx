@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
 
 const EditListing = props => {
@@ -41,7 +41,10 @@ const EditListing = props => {
 		setShow(false);
 		setRedirect("/");
 	}
-	const handleShow = () => setShow(true);
+
+	const handleCancel = () => {
+		setRedirect("/");
+	}
 
 	if (redirect) {
 		return (
@@ -73,10 +76,10 @@ const EditListing = props => {
 						</tbody>
 					</table>
 				<h3>Edit fields</h3>
-				<div className="container">
+				<div className="container" id="editfields">
 					<form onSubmit={ handleSubmit }>
 						<fieldset className="row mb-3">
-							<legend className="col-form-label col-sm-2 pt-0">Status</legend>
+							<legend className="col-form-label col-sm-2 pt-0"><b>Status</b></legend>
 							<div className="col-sm-10">
 								<div className="form-check form-switch">
 									<input className="form-check-input" type="checkbox" name="completed"
@@ -96,14 +99,14 @@ const EditListing = props => {
 							</div>
 						</fieldset>
 						<fieldset className="row mb-3">
-							<legend className="col-form-label col-sm-2 pt-0">Notes</legend>
+							<legend className="col-form-label col-sm-2 pt-0"><b>Notes</b></legend>
 							<div className="input-group">
 								<textarea className="form-control" name="notes"
 									defaultValue={ modTarget.notes } onChange={ handleChange }></textarea>
 							</div>
 						</fieldset>
 						<button type="submit" className="btn btn-primary">Submit</button>
-						&nbsp;&nbsp;<Link to="/">Cancel</Link>
+						<button className="btn btn-danger" onClick={ handleCancel }>Cancel</button>
 					</form>
 				</div>
 				<Modal show={show} onHide={handleClose}>

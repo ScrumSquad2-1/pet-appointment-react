@@ -10,12 +10,12 @@
 
 h2{
 	margin-top: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 h3{
 	margin-top: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 
@@ -49,6 +49,16 @@ tr{
 /**************************************************
  * EDITOR
  **************************************************/
+
+#editfields {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+button {
+	margin-left: 5px;
+	margin-right: 5px;
+}
 
  .customerinfo {
 	width: 50%;
