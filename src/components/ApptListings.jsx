@@ -3,14 +3,15 @@ import ApptListing from './ApptListing';
 
 const ApptListings = props => {
 	return (
-		<table className="itemlist" cellPadding="10">
+		<table className="apptlist" cellPadding="10">
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Visit ID</th>
-					<th>Appt. status</th>
-					<th>Payment status</th>
-					<th>Notes</th>
+					<th>Visit&nbsp;ID (Date)</th>
+					<th>Doctor ID</th>
+					<th colSpan="2">Customer Info</th>
+					<th colSpan="2">Status</th>
+					<th colSpan="2">Notes</th>
 					<th>Actions</th>
 				</tr>
 			</thead>

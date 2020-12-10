@@ -1,0 +1,55 @@
+/**************************************************
+ * GENERAL
+ **************************************************/
+
+#topbar{
+	background-color: #1f1f1f;
+	color: white;
+	padding: 10px;
+}
+
+h2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+h3{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+
+/**************************************************
+ * LISTINGS
+ **************************************************/
+
+span.graytext {
+	font-weight: bold;
+	color:lightgray;
+}
+
+span.greentext {
+	font-weight: bold;
+	color: rgb(95, 207, 95);
+}
+
+span.redtext {
+	font-weight: bold;
+	color: rgb(255, 65, 65);
+}
+
+.apptlist {
+	width: 100%;
+}
+
+tr{
+	border-top: solid #e0e0e0 1px;
+}
+
+/**************************************************
+ * EDITOR
+ **************************************************/
+
+ .customerinfo {
+	width: 50%;
+}

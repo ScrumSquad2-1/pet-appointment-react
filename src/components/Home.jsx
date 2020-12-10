@@ -14,12 +14,11 @@ const Home = props => {
 		.then(response => {
 			console.log(response);
 			setAppts(response.data);
-		})
+		});
 	},[])
-
 	const modify = item => {
-		const filtered = appts.filter(entry => entry.appointmentId === item);
-		return filtered[0];
+		const filteredappt = appts.filter(entry => entry.appointmentId === item);
+		return filteredappt[0];
 	}
 
 	return(

@@ -5,7 +5,8 @@ import { Button, Modal } from 'react-bootstrap';
 
 const EditListing = props => {
 
-	const modTarget = Object.freeze(props.location.state);
+	const modTarget = Object.freeze(props.location.state[0]);
+	const modVisit = Object.freeze(props.location.state[1]);
 	const [formData, updateFormData] = useState(modTarget);
 	const [response, setResponse] = useState();
 
@@ -49,39 +50,62 @@ const EditListing = props => {
 	} else {
 		return (
 			<div className="container">
-				<h2>Editing appointment (ID: {modTarget.appointmentId}, Visit ID: {modTarget.visitId})</h2>
-				<form onSubmit={ handleSubmit }>
-					<fieldset className="row mb-3">
-						<legend className="col-form-label col-sm-2 pt-0">Status</legend>
-						<div className="col-sm-10">
-							<div className="form-check form-switch">
-								<input className="form-check-input" type="checkbox" name="completed"
-									defaultChecked={ modTarget.completed } onChange={ handleChange }/>
-								<label className="form-check-label" htmlFor="isCompleted">Completed?</label>
+				<h2>Editing appointment (ID: {modTarget.appointmentId}, Visit ID: {modTarget.visitId} for Doctor #{ modVisit.doctorId })</h2>
+				<h3>Info</h3>
+					<table className="customerinfo" cellPadding="15px">
+						<tbody>
+							<tr>
+								<th>Customer ID:</th>
+								<td>{ modVisit.customerId }</td>
+							</tr>
+							<tr>
+								<th>Pet ID:</th>
+								<td>{ modVisit.petId }</td>
+							</tr>
+							<tr>
+								<th>Visit Date:</th>
+								<td>{ modVisit.visitDate }</td>
+							</tr>
+							<tr>
+								<th>Service:</th>
+								<td>{ modVisit.service }</td>
+							</tr>
+						</tbody>
+					</table>
+				<h3>Edit fields</h3>
+				<div className="container">
+					<form onSubmit={ handleSubmit }>
+						<fieldset className="row mb-3">
+							<legend className="col-form-label col-sm-2 pt-0">Status</legend>
+							<div className="col-sm-10">
+								<div className="form-check form-switch">
+									<input className="form-check-input" type="checkbox" name="completed"
+										defaultChecked={ modTarget.completed } onChange={ handleChange }/>
+									<label className="form-check-label" htmlFor="isCompleted">Completed?</label>
+								</div>
+								<div className="form-check form-switch">
+									<input className="form-check-input" type="checkbox" name="paid"
+										defaultChecked={ modTarget.paid } onChange={ handleChange }/>
+									<label className="form-check-label" htmlFor="isPaid">Paid?</label>
+								</div>
+								<div className="form-check form-switch">
+									<input className="form-check-input" type="checkbox" name="cancelled"
+										defaultChecked={ modTarget.cancelled } onChange={ handleChange }/>
+									<label className="form-check-label" htmlFor="isCancelled">Cancelled?</label>
+								</div>
 							</div>
-							<div className="form-check form-switch">
-								<input className="form-check-input" type="checkbox" name="paid"
-									defaultChecked={ modTarget.paid } onChange={ handleChange }/>
-								<label className="form-check-label" htmlFor="isPaid">Paid?</label>
+						</fieldset>
+						<fieldset className="row mb-3">
+							<legend className="col-form-label col-sm-2 pt-0">Notes</legend>
+							<div className="input-group">
+								<textarea className="form-control" name="notes"
+									defaultValue={ modTarget.notes } onChange={ handleChange }></textarea>
 							</div>
-							<div className="form-check form-switch">
-								<input className="form-check-input" type="checkbox" name="cancelled"
-									defaultChecked={ modTarget.cancelled } onChange={ handleChange }/>
-								<label className="form-check-label" htmlFor="isCancelled">Cancelled?</label>
-							</div>
-						</div>
-					</fieldset>
-					<fieldset className="row mb-3">
-						<legend className="col-form-label col-sm-2 pt-0">Notes</legend>
-						<div className="input-group">
-							<textarea className="form-control" name="notes"
-								defaultValue={ modTarget.notes } onChange={ handleChange }></textarea>
-						</div>
-					</fieldset>
-					<button type="submit" className="btn btn-primary">Submit</button>
-					&nbsp;&nbsp;<Link to="/">Cancel</Link>
-				</form>
-
+						</fieldset>
+						<button type="submit" className="btn btn-primary">Submit</button>
+						&nbsp;&nbsp;<Link to="/">Cancel</Link>
+					</form>
+				</div>
 				<Modal show={show} onHide={handleClose}>
 					<Modal.Header closeButton>
 						<Modal.Title>Success</Modal.Title>
@@ -92,7 +116,7 @@ const EditListing = props => {
 					</Modal.Body>
 
 					<Modal.Footer>
-						<Button variant="secondary" onClick={handleClose}>OK</Button>
+						<Button variant="success" onClick={handleClose}>OK</Button>
 					</Modal.Footer>
 				</Modal>
 			</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Custom.css';
 import Home from './components/Home';
 import EditListing from './components/EditListing';
 import {
@@ -7,12 +8,13 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
+import Topbar from './components/Topbar';
 
 function App() {
   
   return (
-    <div className="container-fluid">
-      <h1>Appointment Management</h1>
+    <div>
+      <Topbar />
 
       <Router>
         
