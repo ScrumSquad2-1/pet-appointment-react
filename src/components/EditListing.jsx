@@ -9,7 +9,7 @@ const EditListing = props => {
 	const [formData, updateFormData] = useState(modTarget);
 	const [response, setResponse] = useState();
 
-	axios.defaults.baseURL = "http://localhost:9000/api/appointment";
+	axios.defaults.baseURL = "http://localhost:9000/api";
 
 	const handleChange = (event) => {
 		var result = event.target.value.trim();
@@ -24,7 +24,7 @@ const EditListing = props => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		var url = `/appt/${modTarget.appointmentId}`;
+		var url = `/appointment/${modTarget.appointmentId}`;
 		console.log(formData);
 		axios.put(url, formData)
 			.then(function (response) {

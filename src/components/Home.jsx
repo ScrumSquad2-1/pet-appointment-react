@@ -5,12 +5,12 @@ import ApptListings from './ApptListings'
 
 const Home = props => {
 
-	axios.defaults.baseURL = "http://localhost:9000/api/appointment"
+	axios.defaults.baseURL = "http://localhost:9000/api"
 
 	const [appts, setAppts] = useState([]);
 
 	useEffect(() => {
-		axios.get("/appt")
+		axios.get("/appointment")
 		.then(response => {
 			console.log(response);
 			setAppts(response.data);
