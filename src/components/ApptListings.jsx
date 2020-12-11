@@ -22,6 +22,7 @@ const ApptListings = props => {
 							key={item.appointmentId}
 							id={item.appointmentId}
 							visitid={item.visitId}
+							visit={item.visit}
 							cancelled={item.cancelled}
 							completed={item.completed}
 							paid={item.paid}

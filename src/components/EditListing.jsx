@@ -5,8 +5,8 @@ import { Button, Modal } from 'react-bootstrap';
 
 const EditListing = props => {
 
-	const modTarget = Object.freeze(props.location.state[0]);
-	const modVisit = Object.freeze(props.location.state[1]);
+	const modTarget = Object.freeze(props.location.state);
+	const modVisit = Object.freeze(props.location.state.visit);
 	const [formData, updateFormData] = useState(modTarget);
 	const [response, setResponse] = useState();
 
